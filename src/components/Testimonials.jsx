@@ -1,40 +1,18 @@
 import React, { useState } from "react";
+import { userData } from "../utils/UserData";
 
 const Testimonials = () => {
-  const testimonials = [
-    {
-      id: 1,
-      quote: "This is the best product I've ever used!",
-      author: "Jane Doe",
-    },
-    {
-      id: 2,
-      quote: "I highly recommend this product to everyone!",
-      author: "John Smith",
-    },
-    {
-      id: 3,
-      quote: "This product has completely changed my life!",
-      author: "Bob Johnson",
-    },
-    {
-      id: 4,
-      quote: "I'm currently learn React and l can say it's powerful🔥🔥",
-      author: "Kone Issa",
-    },
-  ];
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prev = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+      setCurrentIndex((currentIndex) => currentIndex - 1);
     }
   };
 
   const next = () => {
-    if (currentIndex < testimonials.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+    if (currentIndex < userData.length - 1) {
+      setCurrentIndex((currentIndex) => currentIndex + 1);
     }
   };
 
@@ -48,10 +26,10 @@ const Testimonials = () => {
         <button className="btn absolute top-[40%] left-0" onClick={prev}>
           prev
         </button>
-        <div className="bg-white shadow-md border rounded-md p-t pb-0">
-          <p className="text-center p-10">{testimonials[currentIndex].quote}</p>
+        <div className="bg-white min-w-[600px] shadow-md border rounded-md p-t pb-0">
+          <p className="text-center p-10">{userData[currentIndex].quote}</p>
           <p className="w-full rounded-md bg-teal-400 text-white font-bold text-center p-5">
-            {testimonials[currentIndex].author}
+            {userData[currentIndex].author}
           </p>
         </div>
         <button className="btn absolute top-[40%] right-0" onClick={next}>
